@@ -51,6 +51,19 @@
     width: 400px;
 }
 
+.close_icon {
+    border:  2px solid white;
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 @media screen and (max-width: 1110px) {
     .mainImg {
         left: 20px;

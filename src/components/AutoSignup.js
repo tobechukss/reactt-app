@@ -32,10 +32,22 @@ function AutoSignup() {
           });
     }
 
+    useEffect(() => {
+        const time = setTimeout(() => {
+            setLoggedIn(false)
+        }, 9000);
+        return () => {
+            clearTimeout(time)
+        }
+    }, [loggedIn])
+
+    const toggle = () => {
+        setLoggedIn(!loggedIn)
+    }
 
     return (
         <VStack  width='70%' marginX='auto' alignItems='flex-start'>
-        {loggedIn && <Banner user={user}/>}
+        {loggedIn && <Banner user={user} toggle={toggle}/>}
             <HStack w="100%">
                 <Button leftIcon={<Image src={Google} width="20px"/>} colorScheme="gray" variant="outline" w="50%" marginRight="20px" onClick={googleAuth}>
                     Sign up

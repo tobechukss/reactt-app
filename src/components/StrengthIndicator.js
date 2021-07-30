@@ -1,7 +1,7 @@
 import { Text } from '@chakra-ui/react'
 import React, {useState, useEffect} from 'react'
 
-function StrengthIndicator({toggleEnable, toggleDisable, password}) {
+function StrengthIndicator({setEnable, enable, password}) {
 
     const [colorCode, setColorCode] = useState('red')
     const [strengthNum, setStrengthNum] = useState(1)
@@ -32,12 +32,20 @@ function StrengthIndicator({toggleEnable, toggleDisable, password}) {
                     setStrengthNum(strengthNum + 1)
                 }
             }
-        if (strengthNum === 4) {
-            toggleEnable()
-        }else {
-            toggleDisable()
-        }
+        // if (strengthNum === 4) {
+        //     setEnable(true)
+        // }else {
+        //     setEnable(false)
+        // }
     }, [password])
+
+    useEffect(() => {
+        if (strengthNum === 4) {
+            setEnable(true)
+        }else {
+            setEnable(false)
+        }
+    }, [strengthNum])
     return (
 
         <div className="indicator">
@@ -50,7 +58,7 @@ function StrengthIndicator({toggleEnable, toggleDisable, password}) {
             </div>
             <ul style={{display: `${strengthNum == 4 ? 'none' : "block"}`}}>
                 <li style={{color: `${colorCode}`}}>Password should be at least 8 characters long</li>
-                <li style={{color: `${colorCode}`}}>Password should contain an uppercase letters</li>
+                <li style={{color: `${colorCode}`}}>Password should contain both uppercase and lowercase characters</li>
                 <li style={{color: `${colorCode}`}}>Password Should contain a special character</li>
             </ul>
         </div>
