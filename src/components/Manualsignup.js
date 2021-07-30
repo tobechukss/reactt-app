@@ -74,7 +74,7 @@ function Manualsignup() {
             </InputGroup>
             {password.length > 0 && <StrengthIndicator enable={enable} password={password} setEnable={setEnable}/>}
             <Checkbox onChange={()=>setChecked(!checked)}>By creating account, you agree to accept our <Box as="span" color="blue.500">Privacy Policy, Terms and services <Box as="span" color="#000">and</Box> Notifiation settings</Box></Checkbox>
-            {enable && <Button variant="solid" bgColor="tomato" px="10" w="100%" onClick={submitForm}>Sign Up</Button>}
+            {<Button variant="solid" bgColor="tomato" _hover={{bg: "red.500"}} px="10" w="100%" disabled={!enable} onClick={submitForm}>Sign Up</Button>}
         </VStack>
     )
 }
