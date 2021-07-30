@@ -12,7 +12,7 @@ function Manualsignup() {
     const [email, setEmail] = useState('')
     const [fullname, setFullname] = useState('')
     const [enable, setEnable] = useState(false)
-    const [loggedIn, setLoggedIn] = useState(true)
+    const [loggedIn, setLoggedIn] = useState(false)
     const [checked, setChecked] = useState(false)
     const toggleShow = () => {
         setShowPassword(!showPassword)

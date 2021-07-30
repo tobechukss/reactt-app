@@ -84,3 +84,15 @@
         left: 0;
     }
 }
+
+.condition {
+    position: relative;
+}
+
+.condition::before, .condition::after {
+    width: 14px;
+    height: 3px;
+    background-color: black;
+    position: absolute;
+    top: 0;
+}

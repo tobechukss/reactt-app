@@ -15,9 +15,27 @@ function AutoSignup() {
     const [user, setUser] = useState('')
 
     const provider = new firebase.auth.GoogleAuthProvider();
+    const fbProvider = new firebase.auth.FacebookAuthProvider();
+
 
     const googleAuth = () => {
         firebase.auth().signInWithPopup(provider).then(function(result) {
+            var token = result.credential.accessToken;
+            var user = result.user;
+            console.log(result.user);
+            setUser(user.displayName)
+            setLoggedIn(true)
+            // ...
+          }).catch(function(error) {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            var email = error.email;
+            var credential = error.credential;
+          });
+    }
+
+    const fbAuth = () => {
+        firebase.auth().signInWithPopup(fbProvider).then(function(result) {
             var token = result.credential.accessToken;
             var user = result.user;
             console.log(result.user);
@@ -52,7 +70,7 @@ function AutoSignup() {
                 <Button leftIcon={<Image src={Google} width="20px"/>} colorScheme="gray" variant="outline" w="50%" marginRight="20px" onClick={googleAuth}>
                     Sign up
                 </Button>
-                <IconButton aria-label="Facebook" icon={<Image src={Facebook} width='20px'/>}/>
+                <IconButton aria-label="Facebook" icon={<Image src={Facebook} width='20px'/>} onClick={fbAuth}/>
                 <IconButton aria-label="Apple" icon={<Image src={Apple} width='30px'/>}/>
             </HStack>
         </VStack>

@@ -16,7 +16,7 @@ function Home() {
         width={{ base: "100%", md: "35%" }}
         bgColor="#ffbfb496"
         p="6"
-        marginBottom={{ base: "250px", md: "0" }}
+        paddingBottom={{ base: "250px", md: "0" }}
       >
         <Heading fontSize="2xl" mb="5">
           Asgard
@@ -32,9 +32,10 @@ function Home() {
       <VStack flex="1" bgColor="#fff" paddingY="10" paddingX={{base: '1', md: '16'}}>
         <Heading>Sign up to Asgard</Heading>
         <Text>
-          Already have an account? <span>Log in</span>
+          Already have an account? <Box as="span" color="blue">Log in</Box>
         </Text>
         <AutoSignup />
+        <p className="condition">OR</p>
         <ManualSignup />
       </VStack>
     </Flex>
