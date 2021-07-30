@@ -1,0 +1,73 @@
+.indicator {
+    width: 100%;
+
+
+}
+
+.indicator .bars {
+    background-color: #fff;
+    width: 100%;
+    display: flex;
+    margin: 30px 0;
+}
+
+.bars span {
+    height: 5px;
+    background-color: #ffbfb496;
+    width: calc(100% / 4) !important;
+    border-radius: 10px;
+    margin: 0 2px;
+}
+
+.banner_body {
+    width: 500px;
+    height: 200px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+    z-index: 1000;
+    box-shadow: 2px 10px 99px -13px rgba(0,0,0,0.69);
+    -webkit-box-shadow: 2px 10px 99px -13px rgba(0,0,0,0.69);
+    -moz-box-shadow: 2px 10px 99px -13px rgba(0,0,0,0.69);
+    min-width: 250px;
+    padding: 20px 30px;
+    border: 2px solid white;
+    background-color: rgb(6, 211, 6);
+    position: absolute;
+    top: 40px;
+    right: 50%;
+    transform: translateX(50%);
+}
+
+.mainImg {
+    position: absolute;
+    top: 20%;
+    left: 150px;
+    width: 400px;
+}
+
+@media screen and (max-width: 1110px) {
+    .mainImg {
+        left: 20px;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .mainImg {
+        top: 30%;
+        left: 30px;
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 766px) {
+    .mainImg {
+        top: 50px;
+        left: 0;
+    }
+}
