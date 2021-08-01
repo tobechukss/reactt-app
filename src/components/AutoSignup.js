@@ -1,4 +1,4 @@
-import { Heading, HStack, Img, Input, InputGroup, InputLeftElement, Text, VStack, Image, Button, IconButton } from '@chakra-ui/react'
+import { HStack, VStack, Image, Button, IconButton } from '@chakra-ui/react'
 import React, { useState, useEffect } from 'react'
 import Google from '../Assets/google.png'
 import Facebook from '../Assets/facebook.png'
@@ -16,6 +16,8 @@ function AutoSignup() {
 
     const provider = new firebase.auth.GoogleAuthProvider();
     const fbProvider = new firebase.auth.FacebookAuthProvider();
+    const aplProvider = new firebase.auth.OAuthProvider('apple.com');
+    
 
 
     const googleAuth = () => {
@@ -50,6 +52,22 @@ function AutoSignup() {
           });
     }
 
+    const aplAuth = () => {
+        firebase.auth().signInWithPopup(aplProvider).then(function(result) {
+            var token = result.credential.accessToken;
+            var user = result.user;
+            console.log(result.user);
+            setUser(user.displayName)
+            setLoggedIn(true)
+            // ...
+          }).catch(function(error) {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            var email = error.email;
+            var credential = error.credential;
+          });
+    }
+
     useEffect(() => {
         const time = setTimeout(() => {
             setLoggedIn(false)
@@ -68,10 +86,10 @@ function AutoSignup() {
         {loggedIn && <Banner user={user} toggle={toggle}/>}
             <HStack w="100%">
                 <Button leftIcon={<Image src={Google} width="20px"/>} colorScheme="gray" variant="outline" w="50%" marginRight="20px" onClick={googleAuth}>
-                    Sign up
+                    Sign up with Google
                 </Button>
                 <IconButton aria-label="Facebook" icon={<Image src={Facebook} width='20px'/>} onClick={fbAuth}/>
-                <IconButton aria-label="Apple" icon={<Image src={Apple} width='30px'/>}/>
+                <IconButton aria-label="Apple" icon={<Image src={Apple} width='30px'/>} onClick={aplAuth}/>
             </HStack>
         </VStack>
     )

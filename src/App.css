@@ -1,3 +1,7 @@
+
+
+
+
 .indicator {
     width: 100%;
 
@@ -46,9 +50,10 @@
 
 .mainImg {
     position: absolute;
-    top: 20%;
-    left: 150px;
-    width: 400px;
+    top: 30%;
+    left: 17%;
+   
+    
 }
 
 .close_icon {
@@ -64,29 +69,49 @@
     justify-content: center;
 }
 
+@media screen and (max-width: 1650px) {
+    .mainImg {
+        left: 10px;
+        
+    }
+}
+
 @media screen and (max-width: 1110px) {
     .mainImg {
         left: 20px;
     }
 }
 
-@media screen and (max-width: 860px) {
+@media screen and (max-width: 895px) {
     .mainImg {
-        top: 30%;
+        top: 50%;
         left: 30px;
-        width: 300px;
+        width: 350px;
     }
 }
 
 @media screen and (max-width: 766px) {
     .mainImg {
-        top: 50px;
+        top: 200px;
+        left: 100px;
+      
+    }
+}
+
+@media screen and (max-width: 506px) {
+    .mainImg {
+        top: 250px;
         left: 0;
+        width: 300px;
     }
 }
 
 .condition {
     position: relative;
+    max-width: 400px;
+    font-weight: 500;
+    color: lightgray;
+    text-align: center;
 }
 
 .condition::before, .condition::after {
